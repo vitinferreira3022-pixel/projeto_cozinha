@@ -11,7 +11,6 @@ class Presenca extends Model
     protected $fillable = [
         'aluno_id',
         'data',
-        'cardapio_id',
         'funcionario_id'
     ];
 }

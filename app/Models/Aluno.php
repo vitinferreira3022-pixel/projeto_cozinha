@@ -10,6 +10,8 @@ class Aluno extends Model
     
     protected $fillable = [
         'nome',
+        'email',
+        'RM',
         'data_nascimento',
         'cpf',
         'turma_id'

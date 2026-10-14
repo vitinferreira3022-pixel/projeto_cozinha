@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('desperdicio', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cardapio_id');
-            $table->foreign('cardapio_id')->references('id')->on('cardapio')->onDelete('cascade');
             $table->string('desperdicio_manha');
             $table->string('desperdicio_almoco');
             $table->string('desperdicio_tarde');

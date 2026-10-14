@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Estoque;
 
 class Funcionario extends Model
 {
@@ -12,8 +13,13 @@ class Funcionario extends Model
         'nome',
         'email',
         'senha',
+        'nif',
         'cpf',
         'data_nascimento'
     ];
+
+    public function estoque {
+        return $this->hasMany(Estoque::class, "funcionario_id");
+    }
 
 }

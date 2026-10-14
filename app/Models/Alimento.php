@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Estoque;
 
 class Alimento extends Model
 {
@@ -13,4 +14,8 @@ class Alimento extends Model
         'unidade_medida',
         'descricao'
     ];
+
+    public function alimento {
+        return $this->hasMany(Alimento::class, "funcionario_id");
+    }
 }
