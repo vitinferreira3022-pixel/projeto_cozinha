@@ -46,7 +46,7 @@ class AlunoController extends Controller
         $request->validate([
             'id' => 'required|integer',
         ]);
-        $aluno = Aluno::find($request->id);
+        $aluno = Aluno::with('turma:id,serie')->find($request->id);
         if ($aluno) {
             return response()->json(['aluno' => $aluno, 'erro' => 'n'], 200);
         } else {
@@ -56,7 +56,7 @@ class AlunoController extends Controller
 
     public function listar_alunos(Request $request)
     {
-        $aluno = Aluno::all();
+        $aluno = Aluno::with('turma:id,serie')->get();
 
         return response()->json(['aluno' => $aluno, 'erro' => 'n'], 200);
     }

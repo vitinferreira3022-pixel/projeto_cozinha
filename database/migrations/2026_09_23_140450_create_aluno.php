@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->date('data_nascimento');    
-            $table->string('cpf', 11)->unique();
+            $table->string('cpf', 14)->unique();
             $table->string('email')->unique();
             $table->string('RM', 4)->unique();
             $table->unsignedBigInteger('turma_id');

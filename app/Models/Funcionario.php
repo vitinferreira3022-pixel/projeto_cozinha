@@ -18,7 +18,7 @@ class Funcionario extends Model
         'data_nascimento'
     ];
 
-    public function estoque {
+    public function estoques() {
         return $this->hasMany(Estoque::class, "funcionario_id");
     }
 

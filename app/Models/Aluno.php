@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Turma;
 
 class Aluno extends Model
 {
@@ -16,4 +17,8 @@ class Aluno extends Model
         'cpf',
         'turma_id'
     ];
+
+    public function turma() {
+        return $this->belongsTo(Turma::class, "turma_id");
+    }
 }

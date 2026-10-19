@@ -15,7 +15,7 @@ class Alimento extends Model
         'descricao'
     ];
 
-    public function alimento {
-        return $this->hasMany(Alimento::class, "funcionario_id");
+    public function estoques() {
+        return $this->hasMany(Estoque::class, "alimento_id");
     }
 }

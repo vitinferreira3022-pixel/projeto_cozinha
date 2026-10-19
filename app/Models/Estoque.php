@@ -19,10 +19,10 @@ class Estoque extends Model
     ];
 
     public function alimento() {
-        return $this->belongsToMany(Alimento::class, "alimento_id");
+        return $this->belongsTo(Alimento::class, "alimento_id");
     }
 
     public function funcionario() {
-        return $this->belongsToMany(Funcionario::class, "funcionario_id");
+        return $this->belongsTo(Funcionario::class, "funcionario_id");
     }
 }

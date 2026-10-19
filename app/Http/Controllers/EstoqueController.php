@@ -44,7 +44,7 @@ class EstoqueController extends Controller
         $request->validate([
             'id' => 'required|integer',
         ]);
-        $estoque = Estoque::find($request->id);
+        $estoque = Estoque::with(['alimento:id,nome,unidade_medida', 'funcionario:id,nome'])->find($request->id);
         if ($estoque) {
             return response()->json(['estoque' => $estoque, 'erro' => 'n'], 200);
         } else {
@@ -54,14 +54,14 @@ class EstoqueController extends Controller
 
     public function listar_estoques(Request $request)
     {
-        $estoque = Estoque::all();
+        $estoque = Estoque::with(['alimento:id,nome,unidade_medida', 'funcionario:id,nome'])->get();
 
         return response()->json(['estoque' => $estoque, 'erro' => 'n'], 200);
     }
 
     public function listar_estoques_simples(Request $request)
     {
-        $estoque = Estoque::select('id', 'alimento_id', 'quantidade', 'data_validade')->get();
+        $estoque = Estoque::select('id', 'alimento_id', 'quantidade', 'data_validade')->with('alimento:id,nome,unidade_medida')->get();
 
         return response()->json(['estoque' => $estoque, 'erro' => 'n'], 200);
     }
