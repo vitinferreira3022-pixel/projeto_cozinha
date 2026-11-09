@@ -5,6 +5,7 @@ use App\Http\Controllers\AlunoController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\CardapioController;
 use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,3 +45,4 @@ route::get('/cardapio_funcionario', function () {
 route::get('/tabela_funcionarios', function () {
     return view('tabela_funcionarios');
 });
+route::get('/login', [App\Http\Controllers\LoginController::class, 'login_banco']);
