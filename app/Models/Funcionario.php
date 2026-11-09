@@ -22,4 +22,9 @@ class Funcionario extends Model
         return $this->hasMany(Estoque::class, "funcionario_id");
     }
 
+    public function admin()
+    {
+        return $this->hasOne(Admin::class, 'funcionario_id');
+    }
+
 }

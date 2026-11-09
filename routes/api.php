@@ -2,6 +2,17 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\AlunoController;
+use App\Http\Controllers\AlimentoController;
+use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\DesperdicioController;
+use App\Http\Controllers\TurmaController;
+use App\Http\Middleware\LoginAppMiddleware;
+use App\Http\Controllers\AdminController;
+use App\Http\Middleware\FuncionarioApiMiddleware;
+use App\Http\Middleware\AlunoApiMiddleware;
+use App\Http\Middleware;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -11,18 +22,23 @@ Route::post('/funcionario_cadastro', [App\Http\Controllers\FuncionarioController
 Route::get('/ver_funcionario', [App\Http\Controllers\FuncionarioController::class, 'ver_funcionario']);
 Route::get('/listar_funcionarios', [App\Http\Controllers\FuncionarioController::class, 'listar_funcionarios']);
 Route::get('/listar_funcionarios_simples', [App\Http\Controllers\FuncionarioController::class, 'listar_funcionarios_simples']);
-Route::put('/alterar_funcionario', [App\Http\Controllers\FuncionarioController::class, 'alterar_funcionario']);
-Route::delete('/deletar_funcionario', [App\Http\Controllers\FuncionarioController::class, 'deletar_funcionario']);
+Route::put('/alterar_funcionario', [App\Http\Controllers\FuncionarioController::class, 'alterar_funcionario'])->middleware(FuncionarioApiMiddleware::class);
+Route::delete('/deletar_funcionario', [App\Http\Controllers\FuncionarioController::class, 'deletar_funcionario'])->middleware(FuncionarioApiMiddleware::class);
+Route::post('/login', [App\Http\Controllers\FuncionarioController::class, 'login']);
+Route::post('/logout_funcionario', [App\Http\Controllers\FuncionarioController::class, 'logout_funcionario'])->middleware(FuncionarioApiMiddleware::class);
+
 
 Route::post('/salvar_aluno', [App\Http\Controllers\AlunoController::class, 'salvar_aluno']);
-Route::get('/ver_aluno', [App\Http\Controllers\AlunoController::class, 'ver_aluno']);
+Route::get('/ver_aluno', [App\Http\Controllers\AlunoController::class, 'ver_aluno'])->middleware(AlunoApiMiddleware::class);
 Route::get('/listar_alunos', [App\Http\Controllers\AlunoController::class, 'listar_alunos']);
 Route::get('/listar_alunos_simples', [App\Http\Controllers\AlunoController::class, 'listar_alunos_simples']);
-Route::put('/alterar_aluno', [App\Http\Controllers\AlunoController::class, 'alterar_aluno']);
-Route::delete('/deletar_aluno', [App\Http\Controllers\AlunoController::class, 'deletar_aluno']);
+Route::put('/alterar_aluno', [App\Http\Controllers\AlunoController::class, 'alterar_aluno'])->middleware(AlunoApiMiddleware::class);
+Route::delete('/deletar_aluno', [App\Http\Controllers\AlunoController::class, 'deletar_aluno'])->middleware(AlunoApiMiddleware::class);
+Route::post('/login_aluno', [App\Http\Controllers\AlunoController::class, 'login']);
+Route::post('/logout_aluno', [App\Http\Controllers\AlunoController::class, 'logout'])->middleware(AlunoApiMiddleware::class);
 
-Route::post('/salvar_alimento', [App\Http\Controllers\AlimentoController::class, 'salvar_alimento']);
-Route::get('/ver_alimento', [App\Http\Controllers\AlimentoController::class, 'ver_alimento']);
+Route::post('/salvar_alimento', [App\Http\Controllers\AlimentoController::class, 'salvar_alimento'])->middleware(FuncionarioApiMiddleware::class);
+Route::get('/ver_alimento', [App\Http\Controllers\AlimentoController::class, 'ver_alimento'])->middleware(AlunoApiMiddleware::class);
 Route::get('/listar_alimentos', [App\Http\Controllers\AlimentoController::class, 'listar_alimentos']);
 Route::get('/listar_alimentos_simples', [App\Http\Controllers\AlimentoController::class, 'listar_alimentos_simples']);
 Route::put('/alterar_alimento', [App\Http\Controllers\AlimentoController::class, 'alterar_alimento']);

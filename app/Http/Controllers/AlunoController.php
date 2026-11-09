@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aluno;
+use App\Models\AlunoToken;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class AlunoController extends Controller
 {
@@ -126,4 +129,35 @@ class AlunoController extends Controller
             return response()->json(['message' => 'Erro ao deletar aluno: ', 'erro' => 's', 'msg_erro' => $th->getMessage()], 200);
         }
     }
+
+    public function login(Request $Request){
+        $Request->validate([
+            'email' => 'required',
+            'cpf' => 'required',
+        ]);
+        $aluno = Aluno::where('email', '=', $Request->email)->first();
+        if($aluno){
+            if($Request->cpf === $aluno->cpf){
+                $aluno_token = new AlunoToken();
+                $aluno_token->aluno_id = $aluno->id;
+                $aluno_token->token = Hash::make($aluno->id . $aluno->email . now());
+                $aluno_token->valido_ate = now()->addDays(7);
+                $aluno_token->save();
+                return response()->json(['message' => 'Login realizado com sucesso!', 'erro' => 'n', 'token' => $aluno_token->token], 200);
+
+            }else{
+                return response()->json(['message' => 'Funcionário ou senha incorretos', 'erro' => 's'], 200);
+            }
+        }else{
+            return response()->json(['message' => 'Email não encontrado', 'erro' => 's'], 200);
+        }
+    }
+
+    public function logout(Request $request){
+        AlunoToken::where('aluno_id', $request->aluno_id)
+            ->where('token', $request->token)
+            ->delete();
+        return response()->json(['message' => 'Logout realizado com sucesso','erro' => 'n'], 200);
+    }
+
 }
