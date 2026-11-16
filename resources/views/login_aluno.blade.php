@@ -5,7 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+        integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    @vite('resources/js/login_aluno.js')
 </head>
 
 <body class="bg-secondary text-white">
@@ -24,11 +34,11 @@
                         <input type="email" id="email" class="form-control" placeholder="Escreva aqui...">
                     </div>
                     <div class="mb-3">
-                        <label for="senha" class="form-label small mb-0">Senha</label>
-                        <input type="password" id="senha" class="form-control" placeholder="Escreva aqui...">
+                        <label for="cpf" class="form-label small mb-0">CPF</label>
+                        <input type="text" id="cpf" class="form-control" placeholder="Escreva aqui...">
                     </div>
                 </div>
-                <a href="inicio_aluno" class="btn btn-dark btn-sm">ENTRAR</a>
+                <a id="entrar" class="btn btn-dark btn-sm">ENTRAR</a>
             </div>
         </div>
     </main>

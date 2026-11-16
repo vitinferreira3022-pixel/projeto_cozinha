@@ -15,6 +15,11 @@ class FuncionarioController extends Controller
     {
         return view('cadastro_funcionario');
     }
+    public function funcionario_login(Request $request)
+    {
+        return view('login_funcionario');
+    }
+    
 
     public function salvar_funcionario(Request $request)
     {
@@ -132,7 +137,7 @@ class FuncionarioController extends Controller
                     $funcionario_token->token = Hash::make($funcionario->id . $funcionario->email . now());
                     $funcionario_token->valido_ate = now()->addDays(7);
                     $funcionario_token->save();
-                    return response()->json(['message' => 'Login realizado com sucesso!', 'erro' => 'n', 'token' => $funcionario_token->token], 200);
+                    return response()->json(['message' => 'Login realizado com sucesso!', 'erro' => 'n', 'token' => $funcionario_token->token, "funcionario_id" => $funcionario->id],200);
 
                 }else{
                     return response()->json(['message' => 'Funcionário ou senha incorretos', 'erro' => 's'], 200);
@@ -147,5 +152,11 @@ class FuncionarioController extends Controller
                 ->where('token', $request->token)
                 ->delete();
             return response()->json(['message' => 'Logout realizado com sucesso','erro' => 'n'], 200);
+        }
+
+        public function cadastro_funcionario_html(Request $request)
+        {
+            $funcionarios = Funcionario::all();
+            return view('cadastro_funcionario_aula')->with('funcionarios' , $funcionarios);
         }
     }

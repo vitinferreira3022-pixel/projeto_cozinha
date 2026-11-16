@@ -15,16 +15,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
         integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Login3</title>
+    <title>Login</title>
 
-    @vite('resources/js/login.js')
+    
 </head>
 
 <body>
     <div class="container ">
         <div class="row justify-content-center">
             <div class="col-6 rounded border p-8 shadow-sm bg-light mt-2  ">
-                <h3 class="mt-3 text-center fg-black">Login3</h3>
+                <h3 class="mt-3 text-center fg-black">Login</h3>
 
         <div class="mb-3">
             <label for="email" class="form-label fg-black">Email</label>
@@ -32,10 +32,10 @@
             <div id="emailHelp" class="form-text">Informe seu email cadastrado:</div>
         </div>
         <div class="mb-3">
-            <label for="password" class="form-label fg-black">Senha</label>
-            <input type="password" class="form-control form-control-sm" id="password">
+            <label for="senha" class="form-label fg-black">Senha</label>
+            <input type="password" class="form-control form-control-sm" id="senha">
         </div>
-        <button type="button" class="btn-subtle theme-accent">Entrar</button>
+        <button type="button" class="btn-subtle theme-accent" id="entrar">Entrar</button>
                 
             </div>
             

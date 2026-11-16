@@ -143,10 +143,10 @@ class AlunoController extends Controller
                 $aluno_token->token = Hash::make($aluno->id . $aluno->email . now());
                 $aluno_token->valido_ate = now()->addDays(7);
                 $aluno_token->save();
-                return response()->json(['message' => 'Login realizado com sucesso!', 'erro' => 'n', 'token' => $aluno_token->token], 200);
+                return response()->json(['message' => 'Login realizado com sucesso!',"aluno_id" => $aluno->id, 'erro' => 'n', 'token' => $aluno_token->token], 200);
 
             }else{
-                return response()->json(['message' => 'Funcionário ou senha incorretos', 'erro' => 's'], 200);
+                return response()->json(['message' => 'Aluno ou cpf incorretos', 'erro' => 's'], 200);
             }
         }else{
             return response()->json(['message' => 'Email não encontrado', 'erro' => 's'], 200);

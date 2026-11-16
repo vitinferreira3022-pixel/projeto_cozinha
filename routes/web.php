@@ -6,6 +6,10 @@ use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\CardapioController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HomeController;
+use App\Http\Middleware\LogadoWebMiddleware;
+use App\Http\Middleware\LogadoAdminMiddleware;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,4 +49,7 @@ route::get('/cardapio_funcionario', function () {
 route::get('/tabela_funcionarios', function () {
     return view('tabela_funcionarios');
 });
-route::get('/login', [App\Http\Controllers\LoginController::class, 'login_banco']);
+route::get('/login', [App\Http\Controllers\LoginController::class, 'login_banco'])->name('login');
+Route::get('/home', [HomeController::class, 'mostrarHome'])->middleware(LogadoWebMiddleware::class)->name('home');
+Route::get('/painel_admin', [AdminController::class, 'mostrarAdmin'])->middleware(LogadoAdminMiddleware::class)->name('painel_admin');
+Route::get('/cadastro_funcionario_aula', [FuncionarioController::class, 'cadastro_funcionario_html'])->middleware(LogadoWebMiddleware::class)->name('cadastro_funcionario_aula');
