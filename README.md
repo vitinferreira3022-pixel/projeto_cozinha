@@ -278,7 +278,7 @@ Quando o token é inválido ou expirado, a API retorna uma mensagem informando o
 
 ## Estrutura do projeto
 
-
+``` text
 projeto_cozinha/
 │
 ├── app/
