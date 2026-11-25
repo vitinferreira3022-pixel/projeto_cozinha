@@ -1,12 +1,12 @@
-## 🍽️ Projeto Cozinha
+## Projeto Cozinha
 
-## 📌 Sobre o projeto
+## Sobre o projeto
 
 O Projeto Cozinha é um sistema desenvolvido com Laravel que tem como objetivo facilitar o gerenciamento das atividades relacionadas à cozinha escolar, permitindo o controle de alunos, funcionários, alimentos, estoque, turmas e desperdícios.
 
 O sistema possui uma API REST responsável pelo cadastro, consulta, atualização e exclusão de informações, além de mecanismos de autenticação para alunos e funcionários.
 
-## 🎯 Objetivo (MVP)
+## Objetivo (MVP)
 
 - Realizar o cadastro e gerenciamento de alunos.
 - Realizar o cadastro e gerenciamento de funcionários.
@@ -17,7 +17,7 @@ O sistema possui uma API REST responsável pelo cadastro, consulta, atualizaçã
 - Gerenciar turmas escolares.
 - Disponibilizar dados por meio de uma API REST.
 
-## 🚀 Tecnologias utilizadas
+## Tecnologias utilizadas
 
 - **PHP** – Linguagem de programação.
 - **Laravel** – Framework utilizado no desenvolvimento do sistema.
@@ -25,9 +25,9 @@ O sistema possui uma API REST responsável pelo cadastro, consulta, atualizaçã
 - **HTML e CSS** – Estrutura e estilização das páginas.
 - **JavaScript** – Funcionalidades e interações do sistema.
 
-## 📲 Funcionalidades
+## Funcionalidades
 
-### 👨‍🎓 Gerenciamento de alunos
+### Gerenciamento de alunos
 - Cadastro de alunos.
 - Consulta individual de alunos.
 - Listagem completa de alunos.
@@ -36,7 +36,7 @@ O sistema possui uma API REST responsável pelo cadastro, consulta, atualizaçã
 - Exclusão de alunos.
 - Autenticação e logout.
 
-### 👨‍💼 Gerenciamento de funcionários
+### Gerenciamento de funcionários
 - Cadastro de funcionários.
 - Consulta individual.
 - Listagem de funcionários.
@@ -46,7 +46,7 @@ O sistema possui uma API REST responsável pelo cadastro, consulta, atualizaçã
 - Autenticação e logout.
 - Armazenamento de imagens de funcionários.
 
-### 🥗 Gerenciamento de alimentos
+### Gerenciamento de alimentos
 - Cadastro de alimentos.
 - Consulta individual.
 - Listagem de alimentos.
@@ -54,7 +54,7 @@ O sistema possui uma API REST responsável pelo cadastro, consulta, atualizaçã
 - Alteração de informações.
 - Exclusão de alimentos.
 
-### 📦 Controle de estoque
+### Controle de estoque
 - Cadastro de itens no estoque.
 - Consulta de registros.
 - Listagem completa e simplificada.
@@ -64,27 +64,27 @@ O sistema possui uma API REST responsável pelo cadastro, consulta, atualizaçã
 - Registro de datas de fabricação e validade.
 - Associação dos alimentos aos funcionários responsáveis.
 
-### ♻️ Controle de desperdícios
+### Controle de desperdícios
 - Registro de desperdícios.
 - Registro por período (manhã, almoço e tarde).
 - Registro dos motivos do desperdício.
 - Consulta e listagem de registros.
 - Alteração e exclusão de informações.
 
-### 🏫 Gerenciamento de turmas
+### Gerenciamento de turmas
 - Cadastro de turmas.
 - Consulta individual.
 - Listagem completa e simplificada.
 - Alteração e exclusão de registros.
 
-### 🔐 Autenticação e segurança
+### Autenticação e segurança
 - Login de alunos e funcionários.
 - Geração de tokens de autenticação.
 - Validação de tokens por meio de middlewares.
 - Controle de validade dos tokens.
 - Logout e exclusão dos tokens utilizados.
 
-## ⚙️ Como executar o projeto
+## Como executar o projeto
 
 ### Pré-requisitos
 
@@ -171,7 +171,7 @@ O sistema estará disponível em:
 
 http://127.0.0.1:8000
 
-## 🔌 Integração com API
+## Integração com API
 
 A aplicação possui uma API REST desenvolvida em Laravel, responsável por realizar operações de cadastro, consulta, atualização e exclusão de dados.
 
@@ -181,7 +181,7 @@ A aplicação possui uma API REST desenvolvida em Laravel, responsável por real
 http://127.0.0.1:8000/api
 ```
 
-### 📡 Endpoints disponíveis
+### Endpoints disponíveis
 
 #### Funcionários
 
@@ -261,7 +261,7 @@ http://127.0.0.1:8000/api
 
 **Observação:** os endpoints acima são relativos à URL base `/api`. Algumas requisições possuem proteção por middleware, exigindo informações de autenticação. A documentação das rotas indica quais operações possuem essa proteção.
 
-### 🔐 Autenticação da API
+### Autenticação da API
 
 A API possui autenticação específica para alunos e funcionários.
 
@@ -276,7 +276,7 @@ Os middlewares responsáveis pela autenticação verificam:
 
 Quando o token é inválido ou expirado, a API retorna uma mensagem informando o problema.
 
-## 📂 Estrutura do projeto
+## Estrutura do projeto
 
 
 projeto_cozinha/
@@ -335,15 +335,15 @@ projeto_cozinha/
 - **storage:** utilizado para armazenar arquivos e dados gerados pela aplicação.
 - **tests:** diretório destinado aos testes automatizados.
 
-## 📄 Documentação completa
+## Documentação completa
 
-- 📘 **Documentação do projeto: https://docs.google.com/document/d/1Ma0TwlG8Gtjjp4FfdT_J_0n2BtGHBvu77pwGVowvtsg/edit?usp=sharing
-- 📬 **Documentação da API (Postman): https://documenter.getpostman.com/view/58957590/2sBYHSyLsa
-- 🎨 **Protótipo (Figma): [Adicionar link]
-- 📊 **Organização das tarefas (Trello): [Adicionar link]
-- 💻 **Repositório GitHub: https://github.com/vitinferreira3022-pixel/projeto_cozinha
+- **Documentação do projeto: https://docs.google.com/document/d/1Ma0TwlG8Gtjjp4FfdT_J_0n2BtGHBvu77pwGVowvtsg/edit?usp=sharing
+- **Documentação da API (Postman): https://documenter.getpostman.com/view/58957590/2sBYHSyLsa
+- **Protótipo (Figma): https://www.figma.com/design/IRf5rGeOYk92m5EiubbGEP/Aula-figma?node-id=0-1&t=OiqVfFxtZcS57lvR-1
+- **Organização das tarefas (Trello): https://trello.com/invite/b/6ab10f6931106cefb9852d47/ATTI4c94b2cd9294ef3697b1a54eeeb9fa0285D195ED/cozinha
+- **Repositório GitHub: https://github.com/vitinferreira3022-pixel/projeto_cozinha
 
-## 👨‍💻 Autor
+## Autor
 
 Victor Hugo de Barros Almeida Ferreira
 
