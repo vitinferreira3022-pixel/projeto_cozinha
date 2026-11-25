@@ -91,11 +91,11 @@ class LogadoWebMiddleware
                     return redirect()->route('login');
                 }
             } else {
-                dd('else');
+        
                 Cookie::forget('token');
                 Cookie::forget('funcionario_id');
 
-                return redirect()->route('login_funcionario');
+                return redirect()->route('login');
             }
 
         }

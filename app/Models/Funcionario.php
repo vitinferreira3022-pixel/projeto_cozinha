@@ -15,7 +15,8 @@ class Funcionario extends Model
         'senha',
         'nif',
         'cpf',
-        'data_nascimento'
+        'data_nascimento',
+        'imagem'
     ];
 
     public function estoques() {

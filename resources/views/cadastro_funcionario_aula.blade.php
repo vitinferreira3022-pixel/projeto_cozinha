@@ -14,7 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
         integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Login</title> 
+    <title>Login</title>
+    @vite(['resources/js/cadastro_funcionario.js'])
 </head>
 <body>
     <h3 class="text-center">Cadastro de Funcionário</h3>
@@ -47,12 +48,17 @@
             </div>
             
             <div class="mb-3 col-6">
-                <label for="telefone" class="form-label">Usuário</label>
-                <select class="form-control form-control-sm" id="usuario" name="usuario">
+                <label for="funcionarios" class="form-label">Funcionários</label>
+                <select class="form-control form-control-sm" id="funcionarios" name="usuario">
                 @foreach ($funcionarios as $f)
                     <option value="{{ $f->id }}">{{ $f->nome }}</option>
                 @endforeach
                 </select>
+            </div>
+        </div>
+            <div class="mb-3 col-6">
+                <label for="imagem" class="form-label">Imagem</label>
+                <input type="file" class="form-control form-control-sm" id="imagem" name="imagem">
             </div>
             <div class="mb-3 col-6">
                 <button type="button"class="btn btn-dark btn-sm mt-2" id="cadastrar">Cadastrar</button>

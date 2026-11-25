@@ -30,11 +30,18 @@ class FuncionarioController extends Controller
             'cpf' => 'required|string|max:14|unique:funcionario,cpf',
             'nif' => 'required|string|max:9|unique:funcionario,nif',
             'data_nascimento' => 'required',
+            'funcionario_id' => 'funcionario,id',
+            'imagem' => 'nullable',
         ]);
 
         try {
 
             $funcionario = new Funcionario;
+            if ($request->hasFile('imagem')){
+                $imagem = $request->file('imagem');
+                $caminho = $imagem->store('imagens', 'public');
+                $funcionario->imagem = $caminho;
+            }
             $funcionario->nome = $request->nome;
             $funcionario->email = $request->email;
             $funcionario->senha = Hash::make($request->senha);
@@ -83,13 +90,13 @@ class FuncionarioController extends Controller
             'id' => 'required|integer|exists:funcionario,id',
             'nome' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'senha' => 'required|string',
+            'senha' => 'required',
             'cpf' => 'required|string|max:14',
             'nif' => 'required|string|max:9',
             'data_nascimento' => 'required',
         ]);
 
-        try {
+        try { 
 
             $funcionario = Funcionario::find($request->id);
      
@@ -159,4 +166,22 @@ class FuncionarioController extends Controller
             $funcionarios = Funcionario::all();
             return view('cadastro_funcionario_aula')->with('funcionarios' , $funcionarios);
         }
-    }
+
+        public function tabela_html(Request $request){
+            $dados = Funcionario::select('funcionario.nome', 'funcionario.email', 'funcionario.cpf','funcionario.nif')
+            ->join('admin', 'funcionario.id', '=', 'admin.funcionario_id')
+            ->get();
+            return view('tabela_principal')->with('dados', $dados);
+        }
+
+        public function tabela_aula(request $request){
+            /*puxando informações de duas tabelas com inner join:
+            $dados = Usuario::select('usuarios.nome', 'usuarios.email', 'usuarios.cpf', 'funcionarios.cargo', funcionarios.nif)
+            ->join('funcionarios', 'usuarios.id', '=', 'funcionarios.usuario_id')
+            ->get();
+            */
+            $dados = Funcionario::select('funcionario.nome', 'funcionario.email', 'funcionario.cargo','funcionario.nif')->get();
+
+            return view('tabela_principal')->with('dados', $dados);
+        }
+}
